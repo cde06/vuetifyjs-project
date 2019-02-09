@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
     "e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint",
+    "dev": "vue-cli-service serve",
     "unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "vue": "^2.5.22",
     "vue-router": "^3.0.1",
+    "vuetify": "^1.3.0",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -29,7 +30,11 @@
     "lint-staged": "^8.1.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21"
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "vue-cli-plugin-vuetify": "^0.4.6",
+    "vue-template-compiler": "^2.5.21",
+    "vuetify-loader": "^1.0.5"
   },
   "eslintConfig": {
     "root": true,
@@ -40,10 +45,68 @@
       "plugin:vue/essential",
       "@vue/prettier"
     ],
-    "rules": {},
+    "globals": {
+      "process": true,
+      "require": true,
+      "module": true,
+      "Promise": true,
+      "exports": true,
+      "Buffer": true,
+      "global": true,
+      "DefinePlugin": true
+    },
+    "rules": {
+      "generator-star-spacing": "off",
+      "no-console": 0,
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1,
+          "maxEOF": 0
+        }
+      ],
+      "semi": [
+        2,
+        "always"
+      ],
+      "no-eval": 2,
+      "object-shorthand": [
+        2,
+        "always"
+      ],
+      "no-var": 2,
+      "curly": "error",
+      "no-underscore-dangle": 0,
+      "linebreak-style": [
+        2,
+        "unix"
+      ],
+      "no-inner-declarations": 2,
+      "no-new-wrappers": 2,
+      "no-multi-str": 2,
+      "quotes": [
+        "error",
+        "single",
+        {
+          "avoidEscape": true
+        }
+      ],
+      "vue/max-attributes-per-line": 0,
+      "vue/name-property-casing": 0,
+      "vue/html-self-closing": 0,
+      "vue/html-indent": 0,
+      "vue/attributes-order": 0,
+      "vue/attribute-hyphenation": 0,
+      "vue/no-confusing-v-for-v-if": 1,
+      "vue/require-default-prop": 0
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120
   },
   "postcss": {
     "plugins": {
@@ -55,17 +118,46 @@
     "last 2 versions",
     "not ie <= 8"
   ],
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": [
-      "vue-cli-service lint",
-      "git add"
-    ],
-    "*.vue": [
+    "*.{js,vue}": [
       "vue-cli-service lint",
       "git add"
     ]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": false,
+    "instrument": false,
+    "sourceMap": false,
+    "lines": 1,
+    "statements": 1,
+    "functions": 1,
+    "branches": 1,
+    "include": [
+      "src/**/*.{js,vue}",
+      "src/*.vue"
+    ],
+    "exclude": [
+      "**/*.spec.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "extension": [
+      ".js",
+      ".vue"
+    ],
+    "cache": false,
+    "all": true
   }
 }
