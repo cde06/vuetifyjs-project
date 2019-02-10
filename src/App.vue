@@ -1,20 +1,4 @@
 <template>
-  <!-- <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn flat href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank">
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld />
-    </v-content>
-  </v-app>-->
   <v-app id="inspire">
     <v-navigation-drawer
       id="navigation-drawer"
@@ -44,16 +28,11 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app fixed clipped-left>
-      <!-- <v-toolbar app fixed clipped-left> -->
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <div>
-        <img
-          src="@/assets/logo-gemaltox150.png"
-          style="margin-left:15px;padding:5px;float:left;"
-        />
+        <img id="main-logo" src="@/assets/logo-gemaltox150.png" />
       </div>
       <div
-        class="divider _ngcontent-rtu-1"
         style="border-left: 1px solid #9e9e9e;height: 32px;margin-top: 5px; margin-left:14px;"
       ></div>
       <v-toolbar-title>Connectivity</v-toolbar-title>
@@ -63,18 +42,13 @@
       </v-btn>
       <v-btn icon large>
         <v-icon>person</v-icon>
-        <!-- <v-avatar size="32px" tile>
-          <img
-            src="https://cdn.vuetifyjs.com/images/logos/logo.svg"
-            alt="Vuetify"
-          />
-        </v-avatar>-->
       </v-btn>
     </v-toolbar>
     <v-content id="main-content">
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
           <v-flex shrink>
+            <!-- <HelloWorld /> -->
             <v-tooltip right>
               <v-btn slot="activator" :href="source" icon large target="_blank">
                 <v-icon large>code</v-icon>
@@ -118,5 +92,10 @@ export default {
 }
 #main-menu-list {
   margin-top: 16px;
+}
+#main-logo {
+  margin-left: 15px;
+  padding: 5px;
+  float: left;
 }
 </style>
