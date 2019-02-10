@@ -42,7 +42,7 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
+      "plugin:vue/recommended",
       "@vue/prettier"
     ],
     "globals": {
@@ -90,15 +90,7 @@
         {
           "avoidEscape": true
         }
-      ],
-      "vue/max-attributes-per-line": 0,
-      "vue/name-property-casing": 0,
-      "vue/html-self-closing": 0,
-      "vue/html-indent": 0,
-      "vue/attributes-order": 0,
-      "vue/attribute-hyphenation": 0,
-      "vue/no-confusing-v-for-v-if": 1,
-      "vue/require-default-prop": 0
+      ]
     },
     "parserOptions": {
       "parser": "babel-eslint"
@@ -106,7 +98,7 @@
   },
   "prettier": {
     "singleQuote": true,
-    "printWidth": 120
+    "printWidth": 80
   },
   "postcss": {
     "plugins": {
